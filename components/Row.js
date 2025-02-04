@@ -12,8 +12,13 @@ export default function Row({item, selectedId, select, data, setData, toggleComp
     select(null);
   }
 
+  const done = (item) => {
+    toggleCompleted(item.id)
+    select(item.id);
+  }
+
   return (
-    <Pressable style={[styles.row, {backgroundColor}]} onPress={() => toggleCompleted(item.id)}>
+    <Pressable style={[styles.row, {backgroundColor}]} onPress={() => done(item)}>
       <Text style={[styles.row, {textDecorationLine: item.completed ? 'line-through' : 'none'}]}>{item.name}</Text>
     </Pressable>
   );
